@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cadence — Revenue workflow automation for modern SaaS teams</title>
+    <meta
+      name="description"
+      content="Cadence unifies billing, analytics and customer messaging so your team can launch pricing changes in minutes, not sprints. Start a 14-day free trial."
+    />
+    <meta name="theme-color" content="#4f46e5" />
+    <script>
+      // Applied before first paint so the page never flashes the wrong theme.
+      (function () {
+        try {
+          var stored = window.localStorage.getItem("cadence-theme");
+          var osDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          document.documentElement.setAttribute("data-theme", stored || (osDark ? "dark" : "light"));
+        } catch (error) {
+          /* keep the default light theme */
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header" id="siteHeader">
+      <div class="container header-inner">
+        <a class="brand" href="#top" aria-label="Cadence home">
+          <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="32" rx="8" fill="currentColor" />
+            <path d="M9 20c4-1 6-4 7-9 1 5 3 8 7 9" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" />
+          </svg>
+          <span>Cadence</span>
+        </a>
+
+        <nav class="nav" id="primaryNav" aria-label="Primary">
+          <ul class="nav-list">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <div class="nav-cta">
+            <a class="btn btn-ghost" href="#contact">Sign in</a>
+            <a class="btn btn-primary" href="#pricing">Start free</a>
+          </div>
+        </nav>
+
+        <div class="header-actions">
+          <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+            <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4.2" />
+              <path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7" />
+            </svg>
+            <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5z" />
+            </svg>
+          </button>
+          <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="primaryNav" aria-label="Open menu">
+            <span class="nav-toggle-bars" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="dot" aria-hidden="true"></span> New · AI revenue insights for every plan</p>
+            <h1>Ship revenue workflows that run themselves.</h1>
+            <p class="lede">
+              Cadence unifies billing, product analytics and customer messaging in one workspace, so your team can
+              launch new pricing in minutes instead of waiting on a sprint.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-primary btn-lg" href="#contact">Start 14-day free trial</a>
+              <a class="btn btn-outline btn-lg" href="#pricing">See pricing</a>
+            </div>
+            <ul class="hero-meta">
+              <li>No credit card required</li>
+              <li>Free plan forever</li>
+              <li>SOC 2 Type II</li>
+            </ul>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <div class="app-card">
+              <div class="app-card-top">
+                <span class="app-dot"></span><span class="app-dot"></span><span class="app-dot"></span>
+                <span class="app-title">Monthly recurring revenue</span>
+              </div>
+              <div class="app-card-body">
+                <div class="stat-row">
+                  <div class="stat">
+                    <p class="stat-label">MRR</p>
+                    <p class="stat-value">$184.2k</p>
+                    <p class="stat-delta">+18.4%</p>
+                  </div>
+                  <div class="stat">
+                    <p class="stat-label">Net retention</p>
+                    <p class="stat-value">112%</p>
+                    <p class="stat-delta">+3.1%</p>
+                  </div>
+                </div>
+                <div class="chart">
+                  <span style="--h: 38%"></span>
+                  <span style="--h: 52%"></span>
+                  <span style="--h: 44%"></span>
+                  <span style="--h: 66%"></span>
+                  <span style="--h: 58%"></span>
+                  <span style="--h: 78%"></span>
+                  <span style="--h: 92%"></span>
+                </div>
+                <div class="app-list">
+                  <div class="app-item"><span class="tick" aria-hidden="true"></span> Usage-based plan published</div>
+                  <div class="app-item"><span class="tick" aria-hidden="true"></span> 14 accounts expanded</div>
+                  <div class="app-item"><span class="tick" aria-hidden="true"></span> Dunning recovered $6.1k</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="logos" aria-label="Customers">
+        <div class="container">
+          <p class="logos-label">Trusted by revenue teams at</p>
+          <ul class="logo-row">
+            <li>Northwind</li>
+            <li>Lumen Labs</li>
+            <li>Vertex</li>
+            <li>Orbitpay</li>
+            <li>Kestrel</li>
+          </ul>
+        </div>
+      </section>
+      <section class="section features" id="features">
+        <div class="container">
+          <header class="section-head">
+            <p class="eyebrow">Platform</p>
+            <h2>Everything revenue touches, in one place</h2>
+            <p class="section-sub">
+              Replace the spreadsheet handoffs and half-connected tools with a single system your whole go-to-market
+              team can trust.
+            </p>
+          </header>
+
+          <ul class="feature-grid">
+            <li class="feature-card reveal">
+              <span class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 20V11M10 20V4M16 20v-7M22 20H2" /></svg>
+              </span>
+              <h3>Realtime revenue analytics</h3>
+              <p>Slice MRR, expansion and churn by plan, cohort or region the moment it changes — no nightly ETL.</p>
+            </li>
+            <li class="feature-card reveal">
+              <span class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M13 3 5 13.5h5.5L10 21l8-10.5h-5.5z" /></svg>
+              </span>
+              <h3>Automated billing runs</h3>
+              <p>Usage metering, proration, tax and dunning handled by workflows you configure once and forget.</p>
+            </li>
+            <li class="feature-card reveal">
+              <span class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3.5l7.5 3v5.9c0 4.4-3 8.1-7.5 9.6-4.5-1.5-7.5-5.2-7.5-9.6V6.5z" /><path d="M9 12.2l2.2 2.2L15.4 10" /></svg>
+              </span>
+              <h3>Enterprise-grade controls</h3>
+              <p>SSO/SAML, granular roles, audit trails and regional data residency — SOC 2 Type II audited.</p>
+            </li>
+            <li class="feature-card reveal">
+              <span class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9 3v5M15 3v5M6.5 8h11v3.5a5.5 5.5 0 0 1-11 0z" /><path d="M12 17v4" /></svg>
+              </span>
+              <h3>200+ integrations</h3>
+              <p>Two-way sync with your warehouse, CRM and support desk through open APIs and webhooks.</p>
+            </li>
+            <li class="feature-card reveal">
+              <span class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="9.5" cy="8" r="3.5" /><path d="M3 20v-1.5A4.5 4.5 0 0 1 7.5 14h4A4.5 4.5 0 0 1 16 18.5V20" /><path d="M16.5 11a3.5 3.5 0 1 0 0-7" /></svg>
+              </span>
+              <h3>Built for collaboration</h3>
+              <p>Shared views, inline comments and approvals keep finance, product and CS aligned on one number.</p>
+            </li>
+            <li class="feature-card reveal">
+              <span class="feature-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3l1.9 5.4L19.5 10l-5.6 1.9L12 17.5l-1.9-5.6L4.5 10l5.6-1.6z" /><path d="M18.5 16.5l.7 2 2 .7-2 .7-.7 2-.7-2-2-.7 2-.7z" /></svg>
+              </span>
+              <h3>AI copilot for revenue</h3>
+              <p>Ask why a metric moved, draft a pricing test, or forecast next quarter in plain language.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="section pricing" id="pricing">
+        <div class="container">
+          <header class="section-head">
+            <p class="eyebrow">Pricing</p>
+            <h2>Simple plans that scale with your ARR</h2>
+            <p class="section-sub">Start free, upgrade when the revenue team grows. Cancel any time, keep your data.</p>
+          </header>
+
+          <div class="billing" role="group" aria-label="Billing period">
+            <input class="sr-only" type="radio" name="billing" id="billMonthly" value="monthly" checked />
+            <label for="billMonthly">Monthly</label>
+            <input class="sr-only" type="radio" name="billing" id="billAnnual" value="annual" />
+            <label for="billAnnual">Annual <span class="pill-save">Save 20%</span></label>
+          </div>
+          <p class="sr-only" id="billingStatus" aria-live="polite">Showing monthly prices.</p>
+
+          <ul class="plan-grid">
+            <li class="plan reveal">
+              <h3 class="plan-name">Starter</h3>
+              <p class="plan-desc">For small teams validating their first pricing model.</p>
+              <p class="plan-price">
+                <span class="currency">$</span><span class="price-value" data-monthly="19" data-annual="15">19</span>
+                <span class="price-period" data-monthly="/mo" data-annual="/mo">/mo</span>
+              </p>
+              <p class="plan-note" data-monthly="per seat, billed monthly" data-annual="per seat, billed annually">
+                per seat, billed monthly
+              </p>
+              <a class="btn btn-outline btn-block" href="#contact">Start free trial</a>
+              <ul class="plan-features">
+                <li>Up to 3 seats</li>
+                <li>5,000 metered events / month</li>
+                <li>Core revenue dashboard</li>
+                <li>Email support, 2-day SLA</li>
+              </ul>
+            </li>
+
+            <li class="plan plan-featured reveal">
+              <span class="plan-badge">Most popular</span>
+              <h3 class="plan-name">Growth</h3>
+              <p class="plan-desc">For scaling SaaS teams running usage-based pricing.</p>
+              <p class="plan-price">
+                <span class="currency">$</span><span class="price-value" data-monthly="49" data-annual="39">49</span>
+                <span class="price-period" data-monthly="/mo" data-annual="/mo">/mo</span>
+              </p>
+              <p class="plan-note" data-monthly="per seat, billed monthly" data-annual="per seat, billed annually">
+                per seat, billed monthly
+              </p>
+              <a class="btn btn-primary btn-block" href="#contact">Start free trial</a>
+              <ul class="plan-features">
+                <li>Unlimited seats</li>
+                <li>250,000 metered events / month</li>
+                <li>Automated billing, dunning &amp; tax</li>
+                <li>Warehouse sync + open API</li>
+                <li>AI revenue copilot</li>
+                <li>Priority support, 4-hour SLA</li>
+              </ul>
+            </li>
+
+            <li class="plan reveal">
+              <h3 class="plan-name">Scale</h3>
+              <p class="plan-desc">For finance-led orgs with strict compliance needs.</p>
+              <p class="plan-price">
+                <span class="currency">$</span><span class="price-value" data-monthly="99" data-annual="79">99</span>
+                <span class="price-period" data-monthly="/mo" data-annual="/mo">/mo</span>
+              </p>
+              <p class="plan-note" data-monthly="per seat, billed monthly" data-annual="per seat, billed annually">
+                per seat, billed monthly
+              </p>
+              <a class="btn btn-outline btn-block" href="#contact">Talk to sales</a>
+              <ul class="plan-features">
+                <li>Everything in Growth</li>
+                <li>SSO/SAML, SCIM &amp; audit logs</li>
+                <li>Unlimited events &amp; custom contracts</li>
+                <li>Data residency (EU / US / APAC)</li>
+                <li>Quarterly revenue review</li>
+                <li>Dedicated CSM, 1-hour SLA</li>
+              </ul>
+            </li>
+          </ul>
+
+          <p class="pricing-foot">
+            All plans include unlimited dashboards, 99.99% uptime SLA, and a 30-day money-back guarantee.
+            Non-profit and startup discounts available.
+          </p>
+        </div>
+      </section>
+      <section class="section faq" id="faq">
+        <div class="container faq-inner">
+          <header class="section-head section-head-left">
+            <p class="eyebrow">FAQ</p>
+            <h2>Questions, answered</h2>
+            <p class="section-sub">Still curious? Send us a note below — a human replies within one business day.</p>
+          </header>
+
+          <div class="faq-list">
+            <details class="reveal" open>
+              <summary>How does the 14-day trial work?</summary>
+              <p>
+                You get every Growth feature for 14 days with no card on file. When the trial ends you choose a plan
+                or drop to the free workspace — nothing is charged automatically.
+              </p>
+            </details>
+            <details class="reveal">
+              <summary>Can Cadence migrate our existing billing data?</summary>
+              <p>
+                Yes. Import subscriptions, invoices and price books from CSV or directly from Stripe, Chargebee or
+                Paddle. Our team runs a free migration review for annual plans.
+              </p>
+            </details>
+            <details class="reveal">
+              <summary>What counts as a metered event?</summary>
+              <p>
+                Any ingestion of usage data — an API call, a warehouse row or an SDK event. Aggregations, dashboards
+                and alerts are always unlimited.
+              </p>
+            </details>
+            <details class="reveal">
+              <summary>Do you support annual invoicing and purchase orders?</summary>
+              <p>
+                Scale plans support NET-30 invoices, PO numbers, multi-year terms and custom order forms alongside
+                card and ACH payments.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+      <section class="section contact" id="contact">
+        <div class="container contact-inner">
+          <div class="contact-copy">
+            <p class="eyebrow">Contact</p>
+            <h2>Let's talk about your revenue stack</h2>
+            <p class="section-sub">
+              Tell us where billing and analytics hurt most. We'll reply with a concrete walkthrough — not a brochure.
+            </p>
+
+            <ul class="contact-points">
+              <li>
+                <span class="feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="M4 7.5l8 5.5 8-5.5" /></svg>
+                </span>
+                <span><strong>Sales</strong><a href="mailto:sales@cadence.example">sales@cadence.example</a></span>
+              </li>
+              <li>
+                <span class="feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M12 7.5V12l3 2" /></svg>
+                </span>
+                <span><strong>Response time</strong>Under 1 business day, Mon–Fri</span>
+              </li>
+              <li>
+                <span class="feature-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M12 21s7-6.1 7-11a7 7 0 1 0-14 0c0 4.9 7 11 7 11z" /><circle cx="12" cy="10" r="2.5" /></svg>
+                </span>
+                <span><strong>Office</strong>Harbour Yard, Rotterdam · Remote-first</span>
+              </li>
+            </ul>
+          </div>
+
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="field">
+              <label for="name">Full name</label>
+              <input type="text" id="name" name="name" autocomplete="name" placeholder="Ada Lovelace" aria-describedby="err-name" required />
+              <p class="field-error" id="err-name" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="email">Work email</label>
+              <input type="email" id="email" name="email" autocomplete="email" placeholder="ada@company.com" aria-describedby="err-email" required />
+              <p class="field-error" id="err-email" hidden></p>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company" autocomplete="organization" placeholder="Northwind" aria-describedby="err-company" required />
+                <p class="field-error" id="err-company" hidden></p>
+              </div>
+              <div class="field">
+                <label for="teamSize">Team size</label>
+                <select id="teamSize" name="teamSize" aria-describedby="err-teamSize" required>
+                  <option value="">Select…</option>
+                  <option value="1-10">1–10 people</option>
+                  <option value="11-50">11–50 people</option>
+                  <option value="51-200">51–200 people</option>
+                  <option value="201+">201+ people</option>
+                </select>
+                <p class="field-error" id="err-teamSize" hidden></p>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="plan">Plan of interest</label>
+              <select id="plan" name="plan">
+                <option value="Starter">Starter — $19/seat</option>
+                <option value="Growth" selected>Growth — $49/seat</option>
+                <option value="Scale">Scale — $99/seat</option>
+                <option value="Enterprise">Enterprise — custom</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="message">How can we help?</label>
+              <textarea id="message" name="message" rows="4" placeholder="We need usage-based billing for our API product…" aria-describedby="err-message" required></textarea>
+              <p class="field-error" id="err-message" hidden></p>
+            </div>
+
+            <div class="field field-checkbox">
+              <input type="checkbox" id="consent" name="consent" aria-describedby="err-consent" required />
+              <label for="consent">I agree to be contacted about Cadence and have read the privacy policy.</label>
+            </div>
+            <p class="field-error" id="err-consent" hidden></p>
+
+            <button class="btn btn-primary btn-lg btn-block" type="submit" id="submitBtn">Request a demo</button>
+            <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <a class="brand" href="#top" aria-label="Cadence home">
+            <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+              <rect width="32" height="32" rx="8" fill="currentColor" />
+              <path d="M9 20c4-1 6-4 7-9 1 5 3 8 7 9" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" />
+            </svg>
+            <span>Cadence</span>
+          </a>
+          <p>The revenue workspace for modern SaaS teams. Built in Rotterdam, used in 42 countries.</p>
+        </div>
+
+        <nav class="footer-links" aria-label="Product">
+          <h3>Product</h3>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#contact">Book a demo</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-links" aria-label="Company">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="#contact">About us</a></li>
+            <li><a href="#contact">Careers</a></li>
+            <li><a href="#contact">Security</a></li>
+            <li><a href="#contact">Changelog</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-links" aria-label="Resources">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#contact">Documentation</a></li>
+            <li><a href="#contact">API reference</a></li>
+            <li><a href="#contact">Status</a></li>
+            <li><a href="#contact">Privacy policy</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="container footer-bottom">
+        <p>© <span id="year">2026</span> Cadence Software B.V. All rights reserved.</p>
+        <p class="footer-badges">SOC 2 Type II · GDPR ready · 99.99% uptime</p>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
