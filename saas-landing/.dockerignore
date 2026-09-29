@@ -1,0 +1,23 @@
+# Keep the build context down to the files the image actually needs.
+
+# Version control and editor config.
+.git
+.gitignore
+.github
+.vscode
+.idea
+*.swp
+
+# Dependencies and logs — the site has none, listed so they never creep in.
+node_modules
+npm-debug.log*
+yarn-error.log*
+
+# Container plumbing itself (BuildKit reads the Dockerfile before the context
+# is sent, so excluding it here is safe and expected).
+Dockerfile
+.dockerignore
+docker-compose*.yml
+
+# Documentation is not served by nginx.
+*.md

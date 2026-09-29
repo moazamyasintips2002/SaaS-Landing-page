@@ -15,16 +15,58 @@ Start-Process index.html
 
 # option 2: serve locally on http://localhost:5173
 npx --yes serve . -l 5173
+
+# option 3: build and run the container (see "Docker" below)
+docker build -t cadence-landing .
+docker run --rm -p 5173:80 cadence-landing
 ```
 
 ## Files
 
-| File         | Purpose                                                              |
-| ------------ | -------------------------------------------------------------------- |
-| `index.html` | All markup and copy (semantic sections, ARIA where it matters)        |
-| `styles.css` | Design tokens first, then layout/components, then responsive queries  |
-| `script.js`  | Progressive enhancement: theme, nav, billing toggle, form, reveal      |
-| `README.md`  | This file                                                             |
+| File            | Purpose                                                              |
+| --------------- | -------------------------------------------------------------------- |
+| `index.html`    | All markup and copy (semantic sections, ARIA where it matters)        |
+| `styles.css`    | Design tokens first, then layout/components, then responsive queries  |
+| `script.js`     | Progressive enhancement: theme, nav, billing toggle, form, reveal      |
+| `README.md`     | This file                                                             |
+| `Dockerfile`    | Single-stage nginx image that serves the static files on port 80      |
+| `.dockerignore` | Build-context exclusions (git, IDE files, docs) out of the image      |
+
+## Docker
+
+The `Dockerfile` is deliberately a single stage with no build step: there is nothing to
+compile, so `index.html`, `styles.css` and `script.js` are copied verbatim into an
+`nginx:1.30-alpine` image that serves them on port 80. No Node/npm toolchain and no
+`node_modules` are pulled into the image.
+
+```powershell
+docker build -t cadence-landing .            # build the image
+docker run --rm -p 5173:80 cadence-landing   # → http://localhost:5173
+```
+
+Notes:
+
+- Map the container's port 80 to any free host port; `-p 5173:80` keeps the URL identical to
+  option 2 above (`-p 8080:80` works just as well).
+- The `HEALTHCHECK` fetches `GET /`, so `docker ps` reports the container as `healthy` once
+  nginx is answering the landing page.
+- nginx's stock site config is used unchanged. It serves `/usr/share/nginx/html` on port 80 and
+  relies on `ETag` + `Last-Modified` revalidation, which is what you want while the CSS/JS
+  filenames carry no content hash — long-lived caching would otherwise go stale after an edit.
+- gzip is left at the stock setting (the directive is commented out in `nginx.conf`, so responses
+  are sent uncompressed). The page is ~60 KB of text, so it is not worth extra config for a
+  demo; to turn it on, add a `conf.d` file and rebuild:
+
+  ```dockerfile
+  RUN printf '%s\n' 'gzip on;' \
+      'gzip_types text/css application/javascript text/html;' \
+      > /etc/nginx/conf.d/gzip.conf
+  ```
+- No `try_files` fallback to `index.html` is needed — this is a single document, not a
+  client-side-routed SPA. Static assets are served straight from disk with a `404` for
+  anything missing.
+- The base is pinned to `nginx:1.30-alpine` (the stable channel, currently 1.30.5) so builds are
+  reproducible; the OCI `org.opencontainers.image.*` labels are baked in for registry tooling.
 
 ## What is interactive
 
