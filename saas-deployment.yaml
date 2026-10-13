@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: saas-landing-deployment
+  labels:
+    app: saas-landing
+spec:
+  replicas: 2          # This spins up 2 identical application pods for redundancy
+  selector:
+    matchLabels:
+      app: saas-landing
+  template:
+    metadata:
+      labels:
+        app: saas-landing
+    spec:
+      containers:
+      - name: web-app
+        image: moazamyasin/saas-landing:latest  # Your Docker Hub repository
+        ports:
+        - containerPort: 80                      # The internal port your app listens on
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: saas-landing-service
+spec:
+  type: ClusterIP      # Internal cluster networking
+  selector:
+    app: saas-landing
+  ports:
+  - port: 80           # Exposes port 80 to the cluster
+    targetPort: 80     # Forwards traffic to containerPort 80
