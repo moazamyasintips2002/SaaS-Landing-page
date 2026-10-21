@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
                     // Aap ki Docker Hub credentials ID jo Jenkins me save hai
-                    withDockerRegistry(credentialsId: '4c178f54-a872-445a-8553-296d96ee9ebb', toolName: 'docker') {
+                    withDockerRegistry(credentialsId: 'ae697d34-d8f2-48b5-9578-3bca0831a9c7', toolName: 'docker') {
                         sh "docker build -t ${DOCKER_IMAGE} ."
                         sh "docker push ${DOCKER_IMAGE}"
                     }
