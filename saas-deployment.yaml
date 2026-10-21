@@ -5,7 +5,7 @@ metadata:
   labels:
     app: saas-landing
 spec:
-  replicas: 2          # This spins up 2 identical application pods for redundancy
+  replicas: 1
   selector:
     matchLabels:
       app: saas-landing
@@ -15,19 +15,21 @@ spec:
         app: saas-landing
     spec:
       containers:
-      - name: web-app
-        image: moazamyasin/saas-landing:latest  # Your Docker Hub repository
+      - name: saas-landing-container
+        image: moazamyasin/saas-landing:latest
+        imagePullPolicy: Always
         ports:
-        - containerPort: 80                      # The internal port your app listens on
+        - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: saas-landing-service
 spec:
-  type: ClusterIP      # Internal cluster networking
   selector:
     app: saas-landing
   ports:
-  - port: 80           # Exposes port 80 to the cluster
-    targetPort: 80     # Forwards traffic to containerPort 80
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+
